@@ -37,7 +37,7 @@
         </form>
         
        <div class="auth-link">
-            Don't have an account? <a href="#" onclick="toggleForms()">Sign up</a>
+            Don't have an account? <a href="#" class="toggle-link">Sign up</a>
         </div>
     </div>
 
@@ -77,7 +77,7 @@
         </form>
         
         <div class="signup-link">
-            Already have an account? <a href="#" onclick="toggleForms()">Log in</a>
+            Already have an account? <a href="#" class="toggle-link">Log in</a>
         </div>
     </div>
      <script>
@@ -93,8 +93,12 @@
                 signupForm.style.display = 'block';
             }
         }
-        document.getElementById('show-signup').addEventListener('click', toggleForms);
-        document.getElementById('show-login').addEventListener('click', toggleForms);
+        document.querySelectorAll('.toggle-link').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                toggleForms();
+            });
+        });
     </script>
 </body>
 </html>
